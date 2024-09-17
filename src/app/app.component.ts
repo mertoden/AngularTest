@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ShopModule } from './shop/shop.module';
 
 @Component({
-  selector: 'root',
   standalone: true,
-  imports: [RouterOutlet],
-  template: '<div class="bg-primary m-5 p-5">Shop Application </div>',
-  styleUrl: './app.component.css'
+  selector: 'root',
+  template: '<shop></shop>',
+  imports: [ShopModule]
 })
 export class AppComponent {
-  title = 'Shop Application';
 }
