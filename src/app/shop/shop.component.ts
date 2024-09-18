@@ -6,19 +6,26 @@ import { Category } from "../model/category.model";
 
 @Component({
     selector: 'shop',
-    templateUrl: './shop.component.html'
+    templateUrl: './shop.component.html',
+    styles: ['.pt-100 {padding-top:100px;}']
 })
 export class ShopComponent {
+    public selectedCategory:Category|null = null;
+
     constructor(
         private productRepository: ProductRepository,
         private categoryRepository: CategoryRepository) {}
 
 
-get products(): Product[] {
-    return this.productRepository.getProducts();
-}
+    get products(): Product[] {
+        return this.productRepository.getProducts(this.selectedCategory);
+    }
 
-get categories(): Category[]{
-    return this.categoryRepository.getCategories();
-}
+    get categories(): Category[]{
+        return this.categoryRepository.getCategories();
+    }
+
+    changeCategory(newCategory?: Category){
+        this.selectedCategory = newCategory || null;
+    }
 }
