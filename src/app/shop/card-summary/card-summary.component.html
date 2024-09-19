@@ -1,0 +1,11 @@
+<div class="alert alert-success">
+    <span *ngIf="card.cardCount > 0">
+      There are {{card.cardCount}} products in your cart. <br>
+      Total {{card.total}} $
+    </span>
+    <span *ngIf="card.cardCount == 0">
+      There are no products in your cart.
+    </span>
+  </div>
+  
+{{card.total}}
